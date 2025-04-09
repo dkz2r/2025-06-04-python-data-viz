@@ -11,8 +11,8 @@ latitude: "50.780788"        # decimal latitude of workshop venue (use https://w
 longitude: "6.065220"       # decimal longitude of the workshop venue (use https://www.latlong.net)
 humandate: "June 4. 2025"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "9:00am - 5:00pm"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
-startdate: 2025-06-08      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-enddate: 2025-06-08        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+startdate: 2025-06-04      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+enddate: 2025-06-04        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 instructor: ["Jonathan Hartman"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
 helper: ["Catherine Gonzalez"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["c.gonzalez@itc.rwth-aachen.de", "hartman@itc.rwth-aachen.de"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
@@ -29,33 +29,6 @@ Edit the values in the block above to be appropriate for your workshop.
 If the value is not 'true', 'false', 'null', or a number, please use
 double quotation marks around the value, unless specified otherwise.
 And run 'make workshop-check' *before* committing to make sure that changes are good.
-{% endcomment %}
-
-
-
-{% comment %}
-8< ============= For a workshop delete from here =============
-For a workshop please delete the following block until the next dashed-line
-{% endcomment %}
-
-
-<div class="alert alert-danger">
-This is the workshop template. Delete these lines and use it to
-<a href="https://carpentries.github.io/workshop-template/customization/index.html">customize</a>
-your own website. If you are running a self-organized workshop or have not put
-in a workshop request yet, please also fill in
-<a href="{{site.amy_site}}/forms/self-organised/">this workshop request form</a>
-to let us know about your workshop and our administrator may contact you if we
-need any extra information.
-If this is a pilot workshop for a new lesson,
-set the `pilot` field to `true` in `_config.yml`.
-For workshops teaching a lesson in The Carpentries Incubator,
-remember to uncomment the `incubator_lesson_site`, `incubator_pre_survey`, and `incubator_post_survey`
-fields in `_config.yml`
-</div>
-
-{% comment %}
-8< ============================= until here ==================
 {% endcomment %}
 
 {% comment %}
@@ -147,9 +120,10 @@ Sign up to receive future editions and read our full archive: <a href="https://c
 {% endif %}
 
 {% if site.pilot %}
+<div class="alert alert-info">
 This is a pilot workshop, testing out a lesson that is still under development. The lesson authors would appreciate any feedback you can give them about the lesson content and suggestions for how it could be further improved.
+</div>
 {% endif %}
-
 {% comment %}
 AUDIENCE
 
@@ -426,14 +400,12 @@ This workshop is teaching a lesson in
 <a href="https://carpentries-incubator.org/">The Carpentries Incubator</a>. Please check <a href="{{site.incubator_lesson_site}}">the lesson homepage</a> for a list of lesson sections and estimated timings.
 {% endif %}
 
-{% comment %}
-Edit/replace the text above if you want to include a schedule table.
-See the contents of the _includes/custom-schedule.html file for an example of
-how one of these schedule tables is constructed.
-{% endcomment %}
+{% include custom-schedule.html %}
 
 {% if site.pilot %}
-The lesson taught in this workshop is being piloted and a precise schedule is yet to be established. The workshop will include regular breaks. Please <a href="mailto:{{page.email}}">contact the workshop organisers</a> if you would like more information about the planned schedule.
+<div class="alert alert-info">
+The lesson taught in this workshop is being piloted and a precise schedule is yet to be established. The workshop will include regular breaks. Please <a href="mailto:info@dkz2r.de">contact the workshop organisers</a> if you would like more information about the planned schedule.
+</div>
 {% endif %}
 
 <hr/>
